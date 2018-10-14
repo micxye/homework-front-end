@@ -4,7 +4,7 @@
 }
 
 #top-bar {
-  margin-top: 10px;
+  padding-top: 10px;
   max-width: 920px;
   display: flex;
   margin: auto;
@@ -41,7 +41,7 @@ form input {
 
 form > div {
   position: relative;
-  margin-right: 2px;
+  margin-right: 10px;
 }
 
 form input[type="text"] {
@@ -69,12 +69,21 @@ form input[type="text"] {
   height: 200px;
   -webkit-transform: scale(1);
           transform: scale(1);
-  transition: opacity 0.2s, -webkit-transform 0.2s;
-  transition: opacity 0.2s, transform 0.2s;
-  transition: opacity 0.2s, transform 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .gif-img:hover {
+  cursor: pointer;
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
+}
+
+.gif-title {
+  color: black;
+  padding: 5px;
+}
+
+.gif-url {
+  color: black;
+  text-align: right;
 }

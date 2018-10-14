@@ -11,7 +11,7 @@ class App extends Component {
       gifs: [],
       key:  'oJyD2C14xVVHnLjo',
       view: 'trending',
-      offset: 120,
+      offset: 244,
     }
   }
 
