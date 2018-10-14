@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import Gif from './Gif.js';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
+      url: 'https://api.giphy.com/v1/gifs/',
       gifs: [],
-      key:  'oJyD2C14xVVHnLjo'
+      key:  'oJyD2C14xVVHnLjo',
+      view: 'trending',
+      offset: 120,
     }
   }
 
   componentDidMount() {
-    this.getTrending();
+    this.getTrending(this.state.offset);
   }
 
-  getTrending(offset = 0) {
-    const { gifs, key } = this.state;
-    axios.get(`https://api.giphy.com/v1/gifs/trending?api_key=00ousBAdUX0S${key}IPja&offset=${offset}`)
+  getTrending(offset) {
+    const { url, gifs, key } = this.state;
+    axios.get(`${url}trending?api_key=00ousBAdUX0S${key}IPja&offset=${offset}&limit=24`)
       .then((response) => {
         const nextGifBatch = response.data.data;
         this.setState({ gifs: gifs.concat(nextGifBatch) });
@@ -29,7 +33,8 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.gifs)
+    const { gifs } = this.state;
+    console.log(gifs)
     return (
       <div className="App">
         <div id="top-bar">
@@ -41,10 +46,14 @@ class App extends Component {
             <form id="search-input">
               <div>
                 <input type="text" placeholder="Search all gifs"></input>
-                <input type="submit" value="Search"></input>
               </div>
             </form>
           </div>
+        </div>
+        <div id="gifs-container">
+          {gifs.map((gif, i) => {
+            return <Gif gif={gif} key={i} />
+          })}
         </div>
       </div>
     );
