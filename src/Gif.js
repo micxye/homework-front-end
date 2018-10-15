@@ -22,10 +22,10 @@ export default class Gif extends Component {
               { open } = this.state,
               width = window.innerWidth - 65 > gif.images.original.width ? gif.images.original.width : window.innerWidth - 65,
               style = { width };
-        console.log(width);
+
         return (
             <div className="gif">
-                <img src={gif.images.original.url} 
+                <img src={gif.images.downsized.url} 
                      alt="gif failed to load" 
                      className="gif-img" 
                      onClick={this.openModal}>

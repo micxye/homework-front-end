@@ -41,7 +41,6 @@ form input {
 
 form > div {
   position: relative;
-  margin-right: 10px;
 }
 
 form input[type="text"] {
@@ -81,6 +80,7 @@ form input[type="text"] {
 .gif-title {
   color: black;
   padding: 5px;
+  margin-right: 20px;
 }
 
 .gif-url {
