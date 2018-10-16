@@ -3,6 +3,11 @@
   margin: auto;
 }
 
+#error {
+  font-size: 50px;
+  font-weight: 600;
+}
+
 #top-bar {
   padding-top: 10px;
   max-width: 920px;
@@ -12,6 +17,7 @@
 
 #logo {
   display: flex;
+  cursor: pointer;
 }
 
 #spliffy-logo {
@@ -23,15 +29,16 @@
   padding-top: 1px;
   font-weight: 900;
   font-size: 30px;
+  user-select: none;
 }
 
 #search-bar {
-  width: 800px;
+  width: 760px;
 }
 
 #search-input {
-  padding-left: 10px;
-  padding-top: 4px
+  padding-left: 15px;
+  padding-top: 4px;
 }
 
 form input {
@@ -48,6 +55,60 @@ form input[type="text"] {
   width: 100%;
 }
 
+#search-button {
+  position: relative;
+  top: 4px;
+  height: 30px;
+  background-color: white;
+}
+
+#search-button:hover {
+  cursor: pointer;
+}
+
+#middle-bar {
+  padding-bottom: 10px;
+  display: flex;
+  max-width: 920px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+#view {
+  color: rgb(95, 95, 95);
+  font-weight: 600;
+  font-size: 20px;
+  padding-top: 8px;
+}
+
+#favorites-button {
+  padding-left: 5px;
+  position: relative;
+  top: 4px;
+  height: 30px;
+  text-align: left;
+  display: flex;
+}
+
+#favorites-button:hover {
+  cursor: pointer;
+}
+
+#favorites-text {
+  position: relative;
+  top: 5px;
+  font-size: 13px;
+}
+
+#favorites-heart {
+  position: relative;
+  bottom: 6px;
+  left: 3px;
+  display: inline;
+  color: red;
+  font-size: 30px;
+}
+
 #gifs-container {
   display: flex;
   flex-wrap: wrap;
@@ -61,20 +122,45 @@ form input[type="text"] {
   background-color: rgb(51, 51, 51);
   width: 200px;
   height: 200px;
-}
-
-.gif-img {
-  width: 200px;
-  height: 200px;
   -webkit-transform: scale(1);
           transform: scale(1);
   transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
-.gif-img:hover {
+.gif-img {
+  width: 200px;
+  height: 200px;
+}
+
+.hover {
   cursor: pointer;
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
+}
+
+.favorite {
+  position: relative;
+  z-index: 5;
+  font-size: 30px;
+  bottom: 40px;
+  left: 170px;
+  display: none;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.favorite:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.favorited {
+  color: red;
+}
+
+.show {
+  display: block;
 }
 
 .gif-title {
@@ -85,5 +171,18 @@ form input[type="text"] {
 
 .gif-url {
   color: black;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
+
+.favorite-modal {
+  position: relative;
+  bottom: 10px;
+  font-size: 30px;
+}
+
+.favorite-modal:hover {
+  cursor: pointer;
+  color: red;
+}
+
